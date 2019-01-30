@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Question extends Model
 {
     /**
-     * User can have multiple choices/answers.
+     * Question can have many answers.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

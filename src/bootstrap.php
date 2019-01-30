@@ -2,19 +2,12 @@
 
 use App\Core\Config;
 use App\Seeder;
-use eftec\bladeone\BladeOne;
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Events\EventServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\RoutingServiceProvider;
-use Illuminate\View\Compilers\BladeCompiler;
-use Illuminate\View\View;
-use Illuminate\View\ViewServiceProvider;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Windwalker\Edge\Edge;
-use Windwalker\Edge\Loader\EdgeFileLoader;
-use Windwalker\Edge\Loader\EdgeStringLoader;
 
 require_once 'vendor/autoload.php';
 require_once 'vendor/illuminate/support/helpers.php';
@@ -56,13 +49,13 @@ require 'routes.php';
 // Setting Request and Response
 $request = Request::createFromGlobals();
 
+// Creating & seeding database
+(new Seeder)->seed();
+
 try {
     $response = $app['router']->dispatch($request);
     $response->send();
 } catch (NotFoundHttpException $e) {
     with(new Response('Whoopsie! This page does not exist!',404))->send();
 }
-
-// Creating & seeding database
-(new Seeder)->seed();
 

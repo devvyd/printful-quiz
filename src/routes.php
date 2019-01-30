@@ -1,5 +1,7 @@
 <?php
 
-$app['router']->get('/', 'App\\Controllers\\HomeController@index');
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', 'App\\Controllers\\HomeController@index');
 
 

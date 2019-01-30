@@ -8,6 +8,6 @@ class Controller
 
     public function __construct()
     {
-        $this->view = app()->getBindings();
+        $this->view = app('twig');
     }
 }

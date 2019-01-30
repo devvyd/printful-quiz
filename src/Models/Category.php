@@ -4,15 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Category extends Model
 {
     /**
-     * User can have multiple choices/answers.
+     * Category can have multiple questions.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function answers()
+    public function questions()
     {
-        return $this->hasMany(Answer::class);
+        return $this->hasMany(Question::class);
     }
 }
