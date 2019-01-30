@@ -1,8 +1,5 @@
 <?php
 
-use App\Core\Config;
+require 'src/bootstrap.php';
 
-require_once 'vendor/autoload.php';
-
-$config = new Config();
-var_dump($config->get('database')['driver']);
+echo "All the magic here";

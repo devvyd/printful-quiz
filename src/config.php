@@ -2,12 +2,12 @@
 
 return [
     'database' => [
-        'driver'   => 'mysql',
-        'charset'  => 'utf8',
-        'host'     => '127.0.0.1',
-        'port'     => '3306',
-        'name'     => 'quiz', // Database name.
-        'user'     => 'root',
-        'password' => 'admin'
+        'driver'    => 'mysql',
+        'charset'   => 'utf8',
+        'host'      => '127.0.0.1',
+        'database'  => 'quiz', // Database name.
+        'username'  => 'root',
+        'password'  => '',
+        'collation' => 'utf8_unicode_ci'
     ]
 ];
