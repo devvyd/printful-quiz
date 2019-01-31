@@ -948,19 +948,19 @@
     </column>
     <column id="239" parent="233" name="question_id">
       <Position>2</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="240" parent="233" name="user_id">
       <Position>3</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="241" parent="233" name="option_id">
       <Position>4</Position>
-      <DataType>int(11)|0s</DataType>
+      <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -974,172 +974,192 @@
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="244" parent="233" name="PRIMARY">
+    <index id="244" parent="233" name="answers_question_id_user_id_option_id_index">
+      <ColNames>question_id
+user_id
+option_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="245" parent="233" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="245" parent="234" name="id">
+    <foreign-key id="246" parent="233" name="answers_question_id_foreign">
+      <ColNames>question_id</ColNames>
+      <RefSchemaName>quiz</RefSchemaName>
+      <RefTableName>questions</RefTableName>
+      <RefColNames>id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="247" parent="234" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="234" name="category">
+    <column id="248" parent="234" name="category">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="234" name="created_at">
+    <column id="249" parent="234" name="created_at">
       <Position>3</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="234" name="updated_at">
+    <column id="250" parent="234" name="updated_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="249" parent="234" name="categories_category_unique">
+    <index id="251" parent="234" name="categories_category_unique">
       <ColNames>category</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="250" parent="234" name="PRIMARY">
+    <key id="252" parent="234" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="251" parent="234" name="categories_category_unique">
+    <key id="253" parent="234" name="categories_category_unique">
       <ColNames>category</ColNames>
       <UnderlyingIndexName>categories_category_unique</UnderlyingIndexName>
     </key>
-    <column id="252" parent="235" name="id">
+    <column id="254" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="235" name="question_id">
+    <column id="255" parent="235" name="question_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="235" name="option">
+    <column id="256" parent="235" name="option">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="235" name="is_correct">
+    <column id="257" parent="235" name="is_correct">
       <Position>4</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="235" name="created_at">
+    <column id="258" parent="235" name="created_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="235" name="updated_at">
+    <column id="259" parent="235" name="updated_at">
       <Position>6</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="258" parent="235" name="options_question_id_foreign">
+    <index id="260" parent="235" name="options_question_id_index">
       <ColNames>question_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="259" parent="235" name="PRIMARY">
+    <key id="261" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="260" parent="235" name="options_question_id_foreign">
+    <foreign-key id="262" parent="235" name="options_question_id_foreign">
       <ColNames>question_id</ColNames>
       <RefSchemaName>quiz</RefSchemaName>
       <RefTableName>questions</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="261" parent="236" name="id">
+    <column id="263" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="236" name="question_id">
+    <column id="264" parent="236" name="question_id">
       <Position>2</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="236" name="category_id">
+    <column id="265" parent="236" name="category_id">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="236" name="created_at">
+    <column id="266" parent="236" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="265" parent="236" name="updated_at">
+    <column id="267" parent="236" name="updated_at">
       <Position>5</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="266" parent="236" name="question_categories_question_id_index">
-      <ColNames>question_id</ColNames>
+    <index id="268" parent="236" name="question_categories_question_id_category_id_index">
+      <ColNames>question_id
+category_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="267" parent="236" name="question_categories_category_id_index">
-      <ColNames>category_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="268" parent="236" name="PRIMARY">
+    <key id="269" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="269" parent="236" name="question_categories_question_id_foreign">
+    <foreign-key id="270" parent="236" name="question_categories_question_id_foreign">
       <ColNames>question_id</ColNames>
       <RefSchemaName>quiz</RefSchemaName>
       <RefTableName>questions</RefTableName>
       <RefColNames>id</RefColNames>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="270" parent="237" name="id">
+    <column id="271" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="237" name="question">
+    <column id="272" parent="237" name="category_id">
       <Position>2</Position>
+      <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="273" parent="237" name="question">
+      <Position>3</Position>
       <DataType>text|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="237" name="created_at">
-      <Position>3</Position>
-      <DataType>timestamp|0s</DataType>
-      <ColumnKind>normal</ColumnKind>
-    </column>
-    <column id="273" parent="237" name="updated_at">
+    <column id="274" parent="237" name="created_at">
       <Position>4</Position>
       <DataType>timestamp|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="274" parent="237" name="PRIMARY">
+    <column id="275" parent="237" name="updated_at">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="276" parent="237" name="questions_category_id_index">
+      <ColNames>category_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="277" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

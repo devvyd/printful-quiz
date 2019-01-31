@@ -32,7 +32,7 @@ $capsule->setAsGlobal();
 $capsule->bootEloquent();
 
 // Bootstrap Blade
-$loader = new Twig_Loader_Filesystem(__DIR__ . '/views');
+$loader = new Twig_Loader_Filesystem(__DIR__ . '/Resources/Views');
 $twig = new Twig_Environment($loader, [
     'cache' => __DIR__ . '/cache'
 ]);
@@ -58,4 +58,3 @@ try {
 } catch (NotFoundHttpException $e) {
     with(new Response('Whoopsie! This page does not exist!',404))->send();
 }
-

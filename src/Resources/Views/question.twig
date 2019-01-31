@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quizz: Question #number</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *,
+      *:before,
+      *:after {
+        box-sizing: inherit;
+      }
+
+      .container {
+        margin-top: 5%;
+      }
+
+      h2 {
+        text-align: center;
+        margin-bottom: 5%;
+      }
+
+      .form-group {
+        overflow: hidden;
+        position: relative;
+        max-width: 300px;
+        margin: auto;
+        padding: 10px;
+      }
+
+      .form-group label {
+        display: block;
+        width: 100%;
+        border: 1px solid #8accac;
+        background: #f2f2f2;
+        border-radius: 2px;
+        text-align: center;
+        padding: 10px 3em;
+        font-size: 1.2rem;
+      }
+
+      .form-group label:hover {
+        background: #ddd;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <form class="form">
+        <h2>2. What is something called?</h2>
+
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label" for="option1">
+                  <input
+                    class="form-check-input checkbox"
+                    type="checkbox"
+                    id="option1"
+                  /><span>Answer 1</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label" for="option2">
+                  <input
+                    class="form-check-input checkbox"
+                    type="checkbox"
+                    id="option2"
+                  /><span>Answer 2</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-12">
+            
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label" for="option3">
+                  <input
+                    class="form-check-input checkbox"
+                    type="checkbox"
+                    id="option3"
+                  /><span>Answer 3</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <label class="form-check-label" for="option4">
+                  <input
+                    class="form-check-input checkbox"
+                    type="checkbox"
+                    id="option4"
+                  /><span>Answer 4</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: 25%;">25%</div>
+        </div>
+      <button type="button" class="btn btn-link float-right">Next &RightArrow;</button>
+      </form>
+    </div>
+  </body>
+</html>

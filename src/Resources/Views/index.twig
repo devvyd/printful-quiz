@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to quiz!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+        crossorigin="anonymous">
+    <style>
+        body {
+            margin-top: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Technical task</h1>
+        <form method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="participantName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="testTopic">
+                    <option value="" selected disabled hidden>Choose test</option>
+                    {% if tests.count() > 0 %}
+                        {% for test in tests %}
+                            <option value="test1">{{ test.category }}</option>
+                        {% endfor %}
+                    {% endif %}
+                    <!-- obviously, overestimated my time. So here should be a Vue component and I should've been
+                    done with this test -->
+                    <!-- probably haven't seeded quizzes properly -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
